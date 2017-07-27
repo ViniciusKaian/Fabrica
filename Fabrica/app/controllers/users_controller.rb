@@ -8,16 +8,48 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		if @user.save
-			redirect_to @user, notice: "Nao foi possivel cadastrar."
+			flash[:notice] = "Salvo com sucesso."
+			redirect_to @user#, notice: "Salvo com sucesso."
 		else
-			render :action => "new"
+			flash[:notice] = "Erro ao salvar"
+			render :action => "new"#, notice: "Nao salvou"
 		end
 	end
 
-	# def show
-	# end
+	def show
+		@user = User.find(params[:id])
+		
+		respond_to do |format|
+			format.html
+		end
+	end
 
-	def self.autenticacao(email, senha)
-		user = find_by_email(email)
+	def login
+		reset_session
+	end
+
+	def logar
+		# Codigo para parar no console e testar parametros codigos etc
+		# binding.pry
+		email = params[:email]
+		senha = params[:senha]
+
+		@user = User.logar_user(email, senha)
+
+		if @user
+			session[:usuario] = @user.id
+
+			flash[:notice] = "Sucesso ao logar"
+			# render :action => "show"
+			redirect_to @user
+		else
+			flash[:notice] = "Erro ao logar."
+			render :action => "login"
+		end
+	end
+
+	def login_off
+		reset_session
+		redirect_to login_path
 	end
 end
