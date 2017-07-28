@@ -1,8 +1,11 @@
+
+<%= link_to 'Mostrar todos', mostrartodos_path %><br><br>
+
 <h1>Usuario</h1>
 
 <p><%= @user.name %></p>
 
 <p><%= @user.email %></p><br>
 
-<%= link_to 'Login', login_path %>
-<%= link_to 'Login off', login_off_path %>
+<%= link_to 'Sing out', login_off_path %>
+<%= link_to 'Editar senha', edit_user_path %>

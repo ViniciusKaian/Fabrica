@@ -1,0 +1,15 @@
+<table id="Usuarios">
+	<tr>
+		<th>Email</th>
+		<th>Ação</th>
+
+	</tr>
+
+<% @user.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+		<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'apagar usuário?'} %></td>
+	</tr>
+<% end %>
+
+</table>

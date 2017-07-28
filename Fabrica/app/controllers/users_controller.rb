@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 	
+	def index
+		@user = User.all
+
+		respond_to do |format|
+			format.html
+		end
+	end
+
 	def new
 		@user = User.new
 	end
@@ -51,5 +59,38 @@ class UsersController < ApplicationController
 	def login_off
 		reset_session
 		redirect_to login_path
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+		senha = params[:user][:senha]
+
+		if @user.update_attributes(senha: senha)
+			redirect_to login_path
+		else
+			render 'edit'
+		end
+	end
+
+	def redefine_senha
+		@user = User.find_by_email(params[:email])
+		UserMailer.redefinir_senha(@user).deliver
+		redirect_to login_path
+	end
+
+	def redefine
+	end
+
+	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+
+		respond_to do |format|
+			format.html { redirect_to mostrartodos_url }
+		end
 	end
 end

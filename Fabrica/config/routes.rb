@@ -11,4 +11,11 @@ Fabrica::Application.routes.draw do
 	get 'show', to: 'users#show', as: :show
 
 	get 'cadastro', to: 'users#new', as: :cadastro
+
+	post 'altera', to: 'users#redefine_senha', as: :altera
+
+	get 'redefinir', to: 'users#redefine', as: :redefinir
+
+	get 'mostrartodos', to: 'users#index', as: :mostrartodos
+
 end

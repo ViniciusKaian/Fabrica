@@ -1,0 +1,12 @@
+<h1> Edição usuario </h1>
+
+<%= form_for(@user) do |f| %>
+
+	<%= f.label :Nova_senha %>
+	<%= f.password_field :senha %><br><br>
+
+	<%= f.label :confirmacao_senha %>
+	<%= f.password_field :senha_confirmation %><br><br>
+
+	<%= f.submit "Atualizar senha" %>
+<% end %>
