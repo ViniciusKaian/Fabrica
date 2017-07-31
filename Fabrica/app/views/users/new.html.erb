@@ -1,25 +1,27 @@
-<h1>Cadastrar usuário</h1>
+<div class="cadastro">
+	<h1>Cadastrar usuário</h1>
 
-<%= form_for(@user) do |f| %>
-<p><%= flash[:notice] %></p>
-	<p>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :email %><br>
-		<%= f.text_field :email %>
-	<p>
-		<%= f.label :senha %><br>
-		<%= f.password_field :senha %><br>
-	</p>
-	<p> 
-		<%= f.label :senha_confirmation %><br>
-		<%= f.password_field :senha_confirmation %><br>
-	</p>
-	<p>
-		<%= f.submit "Cadastrar" %>
-	</p>
+	<%= form_for(@user) do |f| %>
+	<p><%= flash[:notice] %></p>
+		<p>
+			<%= f.label :name, :class => 'labels' %><br>
+			<%= f.text_field :name, :class => 'text_field' %>
+		</p>
+		<p>
+			<%= f.label :email, :class => 'labels' %><br>
+			<%= f.text_field :email, :class => 'text_field' %>
+		<p>
+			<%= f.label :senha, :class => 'labels' %><br>
+			<%= f.password_field :senha, :class => 'text_field' %><br>
+		</p>
+		<p> 
+			<%= f.label :senha_confirmation, "Confirmar senha", :class => 'labels' %><br>
+			<%= f.password_field :senha_confirmation, :class => 'text_field' %><br>
+		</p>
+		<p>
+			<br><%= f.submit "Cadastrar", :class => 'submit_tag' %>
+		</p>
 
-	<%= link_to 'Login', login_path %>
-<% end %>
+		<p id="link"><%= link_to 'Login', login_path %></p>
+	<% end %>
+</div>

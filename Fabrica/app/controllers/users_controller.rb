@@ -48,7 +48,6 @@ class UsersController < ApplicationController
 			session[:usuario] = @user.id
 
 			flash[:notice] = "Sucesso ao logar"
-			# render :action => "show"
 			redirect_to @user
 		else
 			flash[:notice] = "Erro ao logar."
@@ -93,4 +92,6 @@ class UsersController < ApplicationController
 			format.html { redirect_to mostrartodos_url }
 		end
 	end
+
+	
 end

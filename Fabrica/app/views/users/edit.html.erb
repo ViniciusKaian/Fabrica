@@ -2,11 +2,10 @@
 
 <%= form_for(@user) do |f| %>
 
-	<%= f.label :Nova_senha %>
-	<%= f.password_field :senha %><br><br>
+	<%= f.label :Nova_senha, "Senha", :class => 'labels' %>
+	<%= f.password_field :senha, :class => "text_field" %><br><br>
+	<%= f.label :confirmacao_senha, "Confirmar senha", :class => 'labels' %>
+	<%= f.password_field :senha_confirmation, :class => "text_field" %><br><br>
 
-	<%= f.label :confirmacao_senha %>
-	<%= f.password_field :senha_confirmation %><br><br>
-
-	<%= f.submit "Atualizar senha" %>
+	<%= f.submit "Atualizar senha", :class => "submit_tag" %>
 <% end %>

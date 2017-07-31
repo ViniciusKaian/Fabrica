@@ -1,14 +1,16 @@
-<h1>Login de usuários</h1>
+<div class="formLogin">
+	<h3>Login de usuários</h3>
 
-<p><%= flash[:notice] %></p>
+	<p><%= flash[:notice] %></p>
 
-<%= form_tag logar_url,method: :post do %>
-	<%= label_tag :email %>
-	<%= text_field_tag :email %><br><br>
-	<%= label_tag :senha %>
-	<%= text_field_tag :senha %><br><br>
-	<%= submit_tag "Logar" %>
-	<br><br><br>
-	<%= link_to 'Cadastrar', cadastro_path %>
-	<%= link_to 'Redefinir Senha', redefinir_path %>
-<% end %>
+	<%= form_tag logar_url,method: :post, class: 'login' do %>
+		<%= label_tag :email, "Email", :class => "labels" %>
+		<%= text_field_tag :email, params[:email], :class => "text_field" %><br><br>
+		<%= label_tag :senha, "Senha", :class => "labels" %>
+		<%= text_field_tag :senha, params[:senha], :class => "text_field" %><br><br>
+		<%= submit_tag "Logar", :class => "submit_tag" %>
+		<br><br><br>
+		<%= link_to 'Redefinir Senha', redefinir_path %>
+	<% end %>
+
+</div>
