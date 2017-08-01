@@ -1,0 +1,19 @@
+<table id="Racoes">
+	<tr>
+		<th class="linha">Código</th>
+		<th class="linha">Descrição</th>
+		<th class="linha">Status</th>
+		<th class="linha">Ação</th>
+
+	</tr>
+
+<% @racao.each do |racao| %>
+	<tr>
+		<td class="linhalista"><%= racao.cod %></td>
+		<td class="linhalista"><%= racao.description %></td>
+		<td class="linhalista"><%= racao.ativa %></td>
+		<td><%= link_to 'Destroy', racao, method: :delete, data: { confirm: 'Apagar ração?'} %> <%= link_to 'Editar ração',edit_racao_path %></td>
+	</tr>
+<% end %>
+
+</table>

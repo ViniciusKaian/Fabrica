@@ -1,7 +1,8 @@
 Fabrica::Application.routes.draw do
-	root to: "users#new"
 
-  resources :users
+ 	root to: "users#new"
+
+ 	resources :users
   
 	get 'login', to: 'users#login', as: :login
 	post 'logar', to: 'users#logar', as: :logar
@@ -18,4 +19,6 @@ Fabrica::Application.routes.draw do
 
 	get 'mostrartodos', to: 'users#index', as: :mostrartodos
 
+	resources :racaos
+	
 end

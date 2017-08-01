@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cod: 1
+  description: MyText
+  ativa: false
+
+two:
+  cod: 1
+  description: MyText
+  ativa: false

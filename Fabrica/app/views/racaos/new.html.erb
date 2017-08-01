@@ -1,0 +1,19 @@
+<h1> Cadastrar nova ração </h1>
+
+
+<%= form_for(@racao) do |f| %>
+	<p><%= flash[:notice] %></p>
+	<p>
+		<%= f.label :cod, :class => 'labels' %><br>
+		<%= f.text_field :cod, :class => 'text_field' %>
+	</p>
+	<p>
+		<%= f.label :description, :class => 'labels' %><br>
+		<%= f.text_field :description, :class => 'text_field' %>
+	</p>
+
+	<%= f.select :ativa, [['Ativa', true], ['Não Ativa', false]], :class => 'selecao' %> 
+	<p>
+		<br><%= f.submit "Cadastrar", :class => 'submit_tag' %>
+	</p>
+<% end %>
