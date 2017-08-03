@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag "ingredientes" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+	<div class="mostra_ingrediente">
+		<h1>Ingrediente</h1>
+		<p>Código: <%= @ingrediente.codigo %></p>
+		<p>Descrição: <%= @ingrediente.description %></p>
+		<p>Status: <%= @ingrediente.ativo = true ? "Ativo" : "Não ativo" %></p>
+		<table>
+			<tr>
+				<td class="linha"><%= link_to "Editar", edit_ingrediente_path %></td>
+				<td class="linha"><%= link_to 'Apagar', @ingrediente, method: :delete, data: { confirm: 'Apagar Ingrediente?'} %></td>
+			</tr>
+		</table>
+	</div>
+</div>

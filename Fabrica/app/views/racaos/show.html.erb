@@ -1,7 +1,27 @@
-<h1>Ração</h1><br>
+<%= stylesheet_link_tag "racaos" %>
 
-<p>Código: <%= @racao.cod %></p><br>
+<div class="content">
+	<%= render 'submenu' %>
+	<div class="mostraracao">
+		<h1>Ração</h1><br>
 
-<p>Descrição: <%= @racao.description %></p><br>
+		<p class="labels">Código: <%= @racao.cod %></p><br>
 
-<p>Status da ração: <%= @racao.ativa %></p><br>
+		<p class="labels">Descrição: <%= @racao.description %></p><br>
+
+		<p class="labels">Status da ração: 
+			<% if @racao.ativa %>
+				Ativa
+			<% else %>
+				Não ativa
+			<% end %>
+		</p><br>
+
+		<table>
+			<tr>
+				<td class="linha_show"><%= link_to "Editar", edit_racao_path %></td>
+				<td class="linha_show"><%= link_to "Apagar", @racao, method: :delete, data: { confirm: 'Apagar ração?'} %></td>
+			</tr>
+		</table>		
+	</div>
+</div>

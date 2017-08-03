@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "racaos" %>
+
+<div class="content" >
+	<%= render 'submenu' %>
+	<div class="editar">
+		<h1> Edição de ração </h1>
+
+		<%= form_for(@racao) do |f| %>
+			<%= f.label :cod, "Código", :class => "labels" %><br>
+			<%= f.text_field :cod, :class => "text_field" %><br><br>
+
+			<%= f.label :description, "Descrição", :class => "labels" %><br>
+			<%= f.text_field :description, :class => "text_field" %><br><br>
+
+			<%= f.select :ativa, [['Ativa', true], ['Não Ativa', false]], :class => 'selecao' %> <br><br>
+
+			<%= f.submit "Atualizar", :class => "submit_tag" %>
+		<% end %>
+	</div>
+</div>

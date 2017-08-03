@@ -1,16 +1,25 @@
-<div class="formLogin">
-	<h3>Login de usuários</h3>
+<%= stylesheet_link_tag "users" %>
 
-	<p><%= flash[:notice] %></p>
+<div class="content">
 
-	<%= form_tag logar_url,method: :post, class: 'login' do %>
-		<%= label_tag :email, "Email", :class => "labels" %>
-		<%= text_field_tag :email, params[:email], :class => "text_field" %><br><br>
-		<%= label_tag :senha, "Senha", :class => "labels" %>
-		<%= text_field_tag :senha, params[:senha], :class => "text_field" %><br><br>
-		<%= submit_tag "Logar", :class => "submit_tag" %>
-		<br><br><br>
-		<%= link_to 'Redefinir Senha', redefinir_path %>
-	<% end %>
+	<div class="formLogin">
+		<h1>Login de usuários</h1>
+
+		<p><%= flash[:notice] %></p>
+
+		<%= form_tag logar_url,method: :post, class: 'login' do %>
+
+			<%= label_tag :email, "Email", :class => "labels" %><br>
+			<%= text_field_tag :email, params[:email], :class => "text_field" %><br><br>
+
+			<%= label_tag :senha, "Senha", :class => "labels" %><br>
+			<%= password_field_tag :senha, params[:senha], :class => "text_field" %><br><br>
+
+			<%= submit_tag "Logar", :class => "submit_tag" %>
+			<br><br><br>
+			<p class="link"><%= link_to 'Redefinir Senha', redefinir_path %></p>
+		<% end %>
+
+	</div>
 
 </div>

@@ -1,19 +1,28 @@
-<table id="Racoes">
-	<tr>
-		<th class="linha">Código</th>
-		<th class="linha">Descrição</th>
-		<th class="linha">Status</th>
-		<th class="linha">Ação</th>
+<%= stylesheet_link_tag "racaos" %>
 
-	</tr>
+<div class="content" >
+	<%= render 'submenu' %>
+	<div class="mostraracoes" >
+		
+		<table id="Racoes">
+			<tr>
+				<th class="linha">Código</th>
+				<th class="linha">Descrição</th>
+				<th class="linha">Status</th>
+				<th class="linha">Ação</th>
 
-<% @racao.each do |racao| %>
-	<tr>
-		<td class="linhalista"><%= racao.cod %></td>
-		<td class="linhalista"><%= racao.description %></td>
-		<td class="linhalista"><%= racao.ativa %></td>
-		<td><%= link_to 'Destroy', racao, method: :delete, data: { confirm: 'Apagar ração?'} %> <%= link_to 'Editar ração',edit_racao_path %></td>
-	</tr>
-<% end %>
+			</tr>
 
-</table>
+			<% @racao.each do |racao| %>
+				<tr>
+					<td class="linhalista"><%= racao.cod %></td>
+					<td class="linhalista"><%= racao.description %></td>
+					<td class="linhalista"><%= racao.ativa = true ? 'Ativa' : 'Não ativa' %></td>
+					<td><%= link_to 'Apagar', racao, method: :delete, data: { confirm: 'Apagar ração?'} %> 
+					<%= link_to "Ver ração", racao %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+</div>

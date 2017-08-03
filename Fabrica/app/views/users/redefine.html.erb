@@ -1,10 +1,12 @@
-<div class="redefine">
-	<h1> Digite o email </h1/>
+<%= stylesheet_link_tag "users" %>
 
-	<%= form_tag altera_url,method: :post do %>
-		<%= label_tag :Email, "Email", :class => "labels" %>
-		<%= text_field_tag :email, params[:email], :class => "text_field" %><br><br>
+<div class="content">
+	<div class="redefine">
+		<h1> Digite o email </h1>
 
-		<%= submit_tag "Redefinir", :class => "submit_tag" %>
-	<% end %>
+		<%= form_tag altera_url,method: :post do %>
+			<%= text_field_tag :email, params[:email], :class => "text_field" %><br><br>
+			<%= submit_tag "Redefinir", :class => "submit_tag" %>
+		<% end %>
+	</div>
 </div>

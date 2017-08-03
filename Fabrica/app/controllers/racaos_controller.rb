@@ -19,13 +19,14 @@ class RacaosController < ApplicationController
 			redirect_to @racao
 		else
 			flash[:notice] = "Erro ao salvar"
-			render :action => "new"
+			# render :action => "new"
+			redirect_to novaracao_path
 		end
   	end
 
   	def show
   		@racao = Racao.find(params[:id])
-
+ 
   		respond_to do |format|
   			format.html
   		end
@@ -37,16 +38,17 @@ class RacaosController < ApplicationController
 
   	def update
   		@racao = Racao.find(params[:id])
-  		ativa = params[:ativa]
+  		cod = params[:racao][:cod]
+  		description = params[:racao][:description]
+  		ativa = params[:racao][:ativa]
 
-		if @racao.update_attributes(ativa: ativa)
-			# redirect_to login_path
+		if @racao.update_attributes(cod: cod, description: description,ativa: ativa)
+			redirect_to racao_path
 		else
 			render 'edit'
 		end
 
   	end
-
 
 	def destroy
 		@racao = Racao.find(params[:id])
@@ -57,12 +59,5 @@ class RacaosController < ApplicationController
 		end
 	end
 
-	# def status
-	# 	if @racao.ativa == true
-	#  		status = "Ativa"
-	# 	else	
-	# 		status = "Não Ativa"
-	# 	end
-	# 	status
-	# end
+
 end

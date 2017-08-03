@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "ingredientes" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+	<div class="index_ingredientes">
+		<table>
+			<tr>
+				<th class="linha_index">Código</th>
+				<th class="linha_index">Descrição</th>
+				<th class="linha_index">Status</th>
+				<th class="linha_index">Ação</th>
+			</tr>
+			<% @ingrediente.each do |ingrediente| %>
+				<tr>
+					<td class="linhalista"><%= ingrediente.codigo %></td>
+					<td class="linhalista"><%= ingrediente.description %></td>
+					<td class="linhalista"><%= ingrediente.ativo  = true ? "Ativo" : "Não Ativo" %></td>
+					<td class="linhalista"><%= link_to 'Apagar', ingrediente, method: :delete, data: { confirm: 'Apagar Ingrediente?'} %> 
+					<%= link_to "Ver Ingrediente", ingrediente %></td>				
+				</tr>
+			<% end %>
+		</table>
+	</div>
+<div>

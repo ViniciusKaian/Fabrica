@@ -1,7 +1,11 @@
-<div class="user">
-	<h1>Usuário</h1>
+<%= stylesheet_link_tag "users" %>
 
-	<p>Nome:   <%= @user.name %></p>
+<div class="content">
+	<div class="user">
+		<h1>Usuário</h1>
 
-	<p>E-mail: <%= @user.email %></p><br>
+		<p class="labels">Nome:   <%= @user.name %></p>
+
+		<p class="labels">E-mail: <%= @user.email %></p><br>
+	</div>
 </div>

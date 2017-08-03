@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 			redirect_to @user#, notice: "Salvo com sucesso."
 		else
 			flash[:notice] = "Erro ao salvar"
-			render :action => "new"#, notice: "Nao salvou"
+			redirect_to cadastro_path
 		end
 	end
 

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170801175431) do
+ActiveRecord::Schema.define(:version => 20170803164840) do
+
+  create_table "ingredientes", :force => true do |t|
+    t.integer  "codigo"
+    t.string   "description"
+    t.boolean  "ativo"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "racaos", :force => true do |t|
     t.integer  "cod"

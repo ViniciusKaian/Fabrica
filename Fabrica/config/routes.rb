@@ -20,5 +20,13 @@ Fabrica::Application.routes.draw do
 	get 'mostrartodos', to: 'users#index', as: :mostrartodos
 
 	resources :racaos
+
+	get 'novaracao', to: 'racaos#new', as: :novaracao
+
+	get 'mostraracoes', to: 'racaos#index', as: :mostraracoes
 	
+	resources :ingredientes
+
+	get 'novoingrediente', to: 'ingredientes#new', as: :novoingrediente
+
 end
