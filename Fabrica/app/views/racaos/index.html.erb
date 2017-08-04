@@ -17,7 +17,13 @@
 				<tr>
 					<td class="linhalista"><%= racao.cod %></td>
 					<td class="linhalista"><%= racao.description %></td>
-					<td class="linhalista"><%= racao.ativa = true ? 'Ativa' : 'Não ativa' %></td>
+					<td class="linhalista">
+						<% if racao.ativa %>
+							Ativa
+						<% else %>
+							Não ativa
+						<% end %>
+					</td>
 					<td><%= link_to 'Apagar', racao, method: :delete, data: { confirm: 'Apagar ração?'} %> 
 					<%= link_to "Ver ração", racao %></td>
 				</tr>

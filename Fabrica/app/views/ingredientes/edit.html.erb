@@ -6,15 +6,16 @@
 
 	<div class="edit" >
 		<h1> Edição de Ingrediente </h1>
-
+		
 		<%= form_for(@ingrediente) do |f| %>
+			<p><%= flash[:notice] %></p>
 			<%= f.label :codigo, "Código", :class => "lb_edit" %><br>
 			<%= f.text_field :codigo, :class => "tx_edit" %><br><br>
 
 			<%= f.label :description, "Descrição", :class => "lb_edit" %><br>
 			<%= f.text_field :description, :class => "tx_edit" %><br><br>
 
-			<%= f.select :ativo, [['Não Ativo', false], ['Ativo', true]] %> <br><br>
+			<%= f.select :ativo, [['Ativo', true], ['Não Ativo', false]] %> <br><br>
 
 			<%= f.submit "Atualizar", :class => "submit_tag" %>
 		<% end %>

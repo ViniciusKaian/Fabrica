@@ -15,11 +15,11 @@ class IngredientesController < ApplicationController
 		@ingrediente = Ingrediente.new(params[:ingrediente])
 
 		if @ingrediente.save
-			flash[:notice] = "Salvo com sucesso!"
+			flash[:notice] = @ingrediente.errors.full_messages
 			redirect_to @ingrediente
 		else
-			flash[:notice] = "Erro ao salvar!"
-			redirect_to novoingrediente_path
+			flash[:notice] = @ingrediente.errors.full_messages
+			render 'new'
 		end
 	end
 
@@ -39,11 +39,12 @@ class IngredientesController < ApplicationController
 		@ingrediente = Ingrediente.find(params[:id])
 		codigo = params[:ingrediente][:codigo]
 		description = params[:ingrediente][:description]
-		status = params[:ingrediente][:ativo]
+		ativo = params[:ingrediente][:ativo]
 
-		if @ingrediente.update_attributes(codigo: codigo, description: description, ativo: status)
+		if @ingrediente.update_attributes(codigo: codigo, description: description, ativo: ativo)
 			redirect_to ingredientes_path
 		else
+			flash[:notice] = @ingrediente.errors.full_messages
 			render 'edit'
 		end
 	end

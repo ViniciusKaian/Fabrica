@@ -43,6 +43,13 @@
 	font-size: 22px;
 }
 
+.nova_racao p{
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 #racao_ativa {
 	width: 300px;
 	height: 30px;
@@ -112,12 +119,19 @@
 	margin-bottom: 10px;
 	padding-top: 10px;
 }
+
+.editar p {
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 /*Fim tela edição de imagem*/
 
 .linha_show {
 	width: 250px;
 	height: 30px;
-	background: #FF6666;
+	background: #F99393;
 	text-align: center;
 	font-size: 22px;
 	font-family: arial;

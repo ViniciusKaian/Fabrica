@@ -7,19 +7,17 @@
 
 		<%= form_for(@racao) do |f| %>
 			<p><%= flash[:notice] %></p>
-			<p>
-				<%= f.label :cod, "Código da ração", :class => 'labels' %><br>
-				<%= f.text_field :cod, :class => 'text_field' %>
-			</p>
-			<p>
-				<%= f.label :description, :class => 'labels' %><br>
-				<%= f.text_field :description, :class => 'text_field' %>
-			</p><br><br>
+			<%= f.label :cod, "Código da ração", :class => 'labels' %><br>
+			<%= f.text_field :cod, value: @racao.cod, :class => 'text_field' %>
 
-			<%= f.select :ativa, [['Ativa', true], ['Não Ativa', false]] %>
-			<p>
-				<br><%= f.submit "Cadastrar", :class => 'submit_tag' %>
-			</p>
+			<%= f.label :description, :class => 'labels' %><br>
+			<%= f.text_field :description, value: @racao.description, :class => 'text_field' %>
+			<br><br>
+
+			<%= f.select :ativa, [['Ativa', true], ['Não Ativa', false]] %><br><br>
+			
+			<br><%= f.submit "Cadastrar", :class => 'submit_tag' %>
+			
 		<% end %>
 	</div>
 </div>

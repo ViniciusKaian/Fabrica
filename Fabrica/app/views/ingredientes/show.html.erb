@@ -6,7 +6,14 @@
 		<h1>Ingrediente</h1>
 		<p>Código: <%= @ingrediente.codigo %></p>
 		<p>Descrição: <%= @ingrediente.description %></p>
-		<p>Status: <%= @ingrediente.ativo = true ? "Ativo" : "Não ativo" %></p>
+		<p>Status:
+			<% if @ingrediente.ativo %>
+				Ativo
+			<% else %>
+				Não ativo
+			<% end %>
+		</p>
+	
 		<table>
 			<tr>
 				<td class="linha"><%= link_to "Editar", edit_ingrediente_path %></td>

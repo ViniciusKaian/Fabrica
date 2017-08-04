@@ -15,12 +15,11 @@ class RacaosController < ApplicationController
   		@racao = Racao.new(params[:racao])
 
   		if @racao.save
-			flash[:notice] = "Salvo com sucesso."
+			flash[:notice] = @racao.errors.full_messages
 			redirect_to @racao
 		else
-			flash[:notice] = "Erro ao salvar"
-			# render :action => "new"
-			redirect_to novaracao_path
+			flash[:notice] = @racao.errors.full_messages
+			render 'new'
 		end
   	end
 
@@ -45,6 +44,7 @@ class RacaosController < ApplicationController
 		if @racao.update_attributes(cod: cod, description: description,ativa: ativa)
 			redirect_to racao_path
 		else
+			flash[:notice] = @racao.errors.full_messages
 			render 'edit'
 		end
 

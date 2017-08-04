@@ -4,8 +4,8 @@
 	<%= render 'submenu' %>
 	<div class="editar">
 		<h1> Edição de ração </h1>
-
 		<%= form_for(@racao) do |f| %>
+			<p><%= flash[:notice] %></p>
 			<%= f.label :cod, "Código", :class => "labels" %><br>
 			<%= f.text_field :cod, :class => "text_field" %><br><br>
 

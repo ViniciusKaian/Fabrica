@@ -72,6 +72,12 @@
 	padding-top: 10px;
 }
 
+.novoingrediente p{
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 #ingrediente_ativo {
 	width: 350px;
 	height: 30px;
@@ -110,7 +116,7 @@
 .linha {
 	width: 250px;
 	height: 30px;
-	background: #FF6666;
+	background: #F99393;
 	text-align: center;
 	font-size: 22px;
 	font-family: arial;
@@ -133,6 +139,16 @@
 	top: 180px;
 }
 
+.edit h1 {
+	text-align: center;
+}
+
+.edit p {
+	font-size: 12px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 .lb_edit {
 	font-family: arial; 
 	font-size: 18px;

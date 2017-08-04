@@ -1,6 +1,6 @@
 Fabrica::Application.routes.draw do
 
- 	root to: "users#new"
+ 	root to: 'users#login'
 
  	resources :users
   
