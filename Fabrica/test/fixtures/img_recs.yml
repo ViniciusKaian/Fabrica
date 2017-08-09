@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Rec_id: 1
+  img_id: 1
+  percentual: 1.5
+
+two:
+  Rec_id: 1
+  img_id: 1
+  percentual: 1.5

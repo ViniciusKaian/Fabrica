@@ -6,6 +6,7 @@
 		
 		<table id="Racoes">
 			<tr>
+				<th class="linha">ID</th>
 				<th class="linha">Código</th>
 				<th class="linha">Descrição</th>
 				<th class="linha">Status</th>
@@ -15,6 +16,7 @@
 
 			<% @racao.each do |racao| %>
 				<tr>
+					<td class="linhalista"><%= racao.id %></td>
 					<td class="linhalista"><%= racao.cod %></td>
 					<td class="linhalista"><%= racao.description %></td>
 					<td class="linhalista">

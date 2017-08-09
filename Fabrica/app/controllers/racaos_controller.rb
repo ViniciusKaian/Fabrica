@@ -1,4 +1,5 @@
 class RacaosController < ApplicationController
+  
   def index
 		@racao = Racao.all
 

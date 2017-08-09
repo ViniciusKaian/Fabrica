@@ -9,4 +9,10 @@ class Ingrediente < ActiveRecord::Base
 
   validates_length_of :description, minimum: 6
   
+  # img_rec --> Imgrediente receita
+
+  # para cada ingrediente tenho varias img_rec
+  # para cada ingrediente, tem várias configurações de ingrediente(img_rec)
+  has_many :img_rec
+
 end

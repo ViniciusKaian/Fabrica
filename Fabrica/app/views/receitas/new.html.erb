@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "receitas" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+
+	<div class="nova_receita">
+		<h1>Nova receita</h1>
+
+		<%= form_for(@receita) do |f| %>
+			<p><%= flash[:notice] %></p>
+			
+			<%= f.label :racao_id, "Codigo da ração" , :class => 'labels' %><br>
+			<%= f.text_field :racao_id, :class => 'text_field' %><br><br>
+									
+			<br><%= f.submit "Cadastrar", :class => 'submit_tag' %><br>
+			
+			<%= link_to "Consultar Rações", mostraracoes_path, :class => 'consulta' %>
+		<% end %>
+
+	</div>
+</div>

@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag "receitas" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+	<div class="">
+		<table id="Receitas">
+			<tr>
+				<th class="linha" colspan="4">Dados da ração</th>
+			</tr>
+			<tr>
+				<th class="linha">ID</th>
+				<th class="linha">Código</th>
+				<th class="linha">Descrição</th>
+				<th class="linha">Status</th>
+			</tr>
+		
+			<tr>
+				<td class="linhalista"><%= @racao.id %></td>
+				<td class="linhalista"><%= @racao.cod %></td>
+				<td class="linhalista"><%= @racao.description %></td>
+				<td class="linhalista">
+					<% if @racao.ativa %>
+						Ativa
+					<% else %>
+						Não ativa
+					<% end %>
+				</td>
+			</tr>
+		</table><br><br>
+		<table id="Receitas">
+			<tr>
+				<th class="linha" colspan="5">Ingredientes</th>
+			</tr>
+			<tr>
+				<th class="linha">ID</th>
+				<th class="linha">Código</th>
+				<th class="linha">Descrição</th>
+				<th class="linha">Status</th>
+				<th class="linha">Percentual</th>
+			</tr>
+			
+			<% i = 0 %>
+			<% @ingredientes_receita.each do |ingrediente_receita| %>
+				<tr>
+					<td class="linhalista"><%= ingrediente_receita.id %></td>
+					<td class="linhalista"><%= ingrediente_receita.codigo %></td>
+					<td class="linhalista"><%= ingrediente_receita.description %></td>
+					<td class="linhalista">
+						<% if ingrediente_receita.ativo %>
+							Ativo
+						<% else %>
+							Não ativo
+						<% end %>
+					</td>
+					<td class="linhalista"><%= @percentuais[i] %></td>
+				</tr>
+				<% i = i + 1 %>
+			<% end %>			
+		</table>
+	</div>
+</div>

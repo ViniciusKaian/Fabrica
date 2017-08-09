@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170803164840) do
+ActiveRecord::Schema.define(:version => 20170804183426) do
+
+  create_table "img_recs", :force => true do |t|
+    t.integer  "Rec_id"
+    t.integer  "img_id"
+    t.float    "percentual"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "ingredientes", :force => true do |t|
     t.integer  "codigo"
@@ -27,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20170803164840) do
     t.boolean  "ativa"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "receitas", :force => true do |t|
+    t.integer  "racao_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

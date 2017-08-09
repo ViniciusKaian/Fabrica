@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "receitas" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+	<% @receita.each do |receita| %>
+	<p>
+		<%= receita.racao_id %>
+		<%= Racao.find_by_id(receita.racao_id).try(:cod) %>
+		<%= link_to "Ver receita", receita %>
+		<%= link_to "Apagar", receita, method: :delete, data: { confirm: 'Apagar receita?' } %>
+	<p>
+	<% end %>
+</div>

@@ -29,4 +29,5 @@ Fabrica::Application.routes.draw do
 
 	get 'novoingrediente', to: 'ingredientes#new', as: :novoingrediente
 
+	resources :receitas
 end
