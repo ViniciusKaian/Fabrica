@@ -30,4 +30,10 @@ Fabrica::Application.routes.draw do
 	get 'novoingrediente', to: 'ingredientes#new', as: :novoingrediente
 
 	resources :receitas
+
+	get 'addingrediente', to: 'receitas#add_ingrediente', as: :addingrediente
+
+	post 'salvaingrediente', to: 'receitas#salva_ingrediente', as: :salvaingrediente
+
+	get 'removeingrediente', to: 'receitas#remove_ingrediente', as: :removeingrediente
 end

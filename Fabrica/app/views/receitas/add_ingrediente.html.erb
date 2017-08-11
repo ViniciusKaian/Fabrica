@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag "receitas" %>
+
+<div class="content">
+	<%= render 'submenu' %>
+
+	<div class="nova_receita">
+		<h1>Adicionar ingrediente</h1><br>
+		<%= form_tag salvaingrediente_url,method: :post do %>
+	
+			<%= fields_for :img_rec do |imgrec_fields| %>
+
+	 			<div class="field">
+	    			<%= imgrec_fields.label :Rec_id, "ID receita", :class => 'labels' %><br />
+	    			<%= imgrec_fields.select :Rec_id, @receitas.map{ |receita| [receita.id] } %><br /><br />
+
+				</div>
+				
+				<div class="field">
+			   		<%= imgrec_fields.label :img_id, "ID ingrediente", :class => 'labels' %><br />
+			   		<%= imgrec_fields.select :img_id , @ingredientes.map{ |ingrediente| [ingrediente.id] } %><br /><br />
+				</div>
+				
+				<div class="field">
+			   		<%= imgrec_fields.label :percentual, "Percetual", :class => 'labels' %><br />
+			  		<%= imgrec_fields.text_field :percentual, :class => 'text_field' %><br /><br />
+				</div>
+			<% end %>
+		
+			<br><%= submit_tag "Adicionar", :class => 'submit_tag' %><br>
+	
+		<% end %>
+		<%= link_to "Consultar receitas", receitas_path %>
+	</div>						
+</div>

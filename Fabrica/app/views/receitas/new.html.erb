@@ -11,6 +11,24 @@
 			
 			<%= f.label :racao_id, "Codigo da ração" , :class => 'labels' %><br>
 			<%= f.text_field :racao_id, :class => 'text_field' %><br><br>
+
+		
+    		<%= f.fields_for :img_rec do |imgrec_fields| %>
+ 				<div class="field">
+    				<%= imgrec_fields.label :Rec_id, "ID receita", :class => 'labels' %><br />
+    				<%= imgrec_fields.text_field :Rec_id, :class => 'text_field' %><br /><br />
+			  	</div>
+			
+				<div class="field">
+			    	<%= imgrec_fields.label :img_id, "ID ingrediente", :class => 'labels' %><br />
+			    	<%= imgrec_fields.text_field :img_id, :class => 'text_field' %><br /><br />
+			  	</div>
+			
+				<div class="field">
+			    	<%= imgrec_fields.label :percentual, "Percetual", :class => 'labels' %><br />
+			    	<%= imgrec_fields.text_field :percentual, :class => 'text_field' %><br /><br />
+			  	</div>
+			<% end %>
 									
 			<br><%= f.submit "Cadastrar", :class => 'submit_tag' %><br>
 			

@@ -1,8 +1,19 @@
 class ReceitasController < ApplicationController
 	
 	def index
-		@receita = Receita.all
 
+		# Se o parametro :filtra_id não vier vaziu então busca receita pelo id
+		if !params[:filtra_id].blank?
+			@receita = Receita.filtra_id(params[:filtra_id])
+
+		# Se o parametro filta_codigo_racao não vier vaziu então filtra por receita
+		elsif !params[:filtra_codigo_racao].blank?
+			@receita = Receita.filtra_codigo_racao(params[:filtra_codigo_racao])
+		else
+			# se não pega todas as receitas
+			@receita = Receita.all
+		end
+		
 		@codigo_racoes_receita = []
 
 		@racoes = Racao.all
@@ -18,6 +29,7 @@ class ReceitasController < ApplicationController
 
 	def new
 		@receita = Receita.new
+		@receita.img_rec.build
 	end
 
 	def create
@@ -37,24 +49,6 @@ class ReceitasController < ApplicationController
 			flash[:notice] = "Racao nao existe"
 			render 'new'
 		end
-	end
-
-	def adiciona_ingrediente_receita
-		
-		if Ingrediente.find_by_id(params[:ingrediente][:id])
-			@ingrediente = Ingrediente.new(params[:ingrediente][:id])
-
-			if @ingrediente.save
-				flash[:notice] = @ingrediente.errors.full_messages
-				redirect_to @receita
-			else
-				flash[:notice] = @receita.errors.full_messages
-				render 'show'
-			end
-		else
-
-		end
-
 	end
 
 	def show
@@ -106,6 +100,43 @@ class ReceitasController < ApplicationController
 
 		respond_to do |format|
 			format.html { redirect_to receitas_path }
+		end
+	end
+
+	def add_ingrediente
+		@imgrec = ImgRec.new
+		@receitas = Receita.all
+		@ingredientes = Ingrediente.all
+	end
+
+	def salva_ingrediente
+
+		if Ingrediente.find_by_id(params[:img_rec][:img_id])
+			@imgrec = ImgRec.new(params[:img_rec])
+
+			if @imgrec.save
+				flash[:notice] = @imgrec.errors.full_messages
+				redirect_to receita_path(id: @imgrec.Rec_id)
+			else
+				flash[:notice] = @imgrec.errors.full_messages
+				render 'new'
+			end
+		else
+			# redirect_to new_receita_path
+			flash[:notice] = "Racao nao existe"
+			render 'new'
+		end
+	end
+
+	def remove_ingrediente
+		@ingrec = ImgRec.find(params[:id])
+
+		id_receita = @ingrec.Rec_id
+		
+		@ingrec.destroy
+
+		respond_to do |format|
+			format.html {redirect_to receita_path(id: id_receita)}
 		end
 	end
 end

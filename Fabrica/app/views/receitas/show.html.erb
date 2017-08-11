@@ -5,6 +5,10 @@
 	<div class="">
 		<table id="Receitas">
 			<tr>
+				<th class="linha" colspan="4">ID da receita: <%= @receita.id %></th>
+			</tr>
+
+			<tr>
 				<th class="linha" colspan="4">Dados da ração</th>
 			</tr>
 			<tr>
@@ -37,6 +41,7 @@
 				<th class="linha">Descrição</th>
 				<th class="linha">Status</th>
 				<th class="linha">Percentual</th>
+				<th class="linha">Ação</th>
 			</tr>
 			
 			<% i = 0 %>
@@ -53,9 +58,16 @@
 						<% end %>
 					</td>
 					<td class="linhalista"><%= @percentuais[i] %></td>
+					<% id_imgrec = ImgRec.find_by_img_id(ingrediente_receita.id) %>
+					<td class="linhalista"><%= link_to "Remover", removeingrediente_path(id: id_imgrec) %></td>
 				</tr>
 				<% i = i + 1 %>
-			<% end %>			
+			<% end %>
+			<tr>
+				<td><%= link_to "Adicionar ingrediente", addingrediente_path %>	</td>
+			</tr>
 		</table>
+
+
 	</div>
 </div>
