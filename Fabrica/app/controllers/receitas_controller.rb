@@ -110,8 +110,8 @@ class ReceitasController < ApplicationController
 	end
 
 	def salva_ingrediente
-
 		if Ingrediente.find_by_id(params[:img_rec][:img_id])
+			
 			@imgrec = ImgRec.new(params[:img_rec])
 
 			if @imgrec.save
@@ -123,7 +123,7 @@ class ReceitasController < ApplicationController
 			end
 		else
 			# redirect_to new_receita_path
-			flash[:notice] = "Racao nao existe"
+			flash[:notice] = "Ingrediente nao existe"
 			render 'new'
 		end
 	end

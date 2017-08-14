@@ -16,4 +16,5 @@ class Receita < ActiveRecord::Base
 
   #scope :nome_filtro, ->(parametro) {joins(:nome_relacionamento).where("nome_tabela.nome_campo_tabela", parametro)}
   scope :filtra_codigo_racao, ->(codigo_racao) { joins(:racao).where("racaos.cod = ?", codigo_racao) }
+
 end

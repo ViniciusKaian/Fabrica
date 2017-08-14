@@ -45,6 +45,7 @@
 			</tr>
 			
 			<% i = 0 %>
+			<% total_percentual_receita = 0 %>
 			<% @ingredientes_receita.each do |ingrediente_receita| %>
 				<tr>
 					<td class="linhalista"><%= ingrediente_receita.id %></td>
@@ -58,6 +59,7 @@
 						<% end %>
 					</td>
 					<td class="linhalista"><%= @percentuais[i] %></td>
+					<% total_percentual_receita = total_percentual_receita + @percentuais[i] %>
 					<% id_imgrec = ImgRec.find_by_img_id(ingrediente_receita.id) %>
 					<td class="linhalista"><%= link_to "Remover", removeingrediente_path(id: id_imgrec) %></td>
 				</tr>
@@ -65,6 +67,10 @@
 			<% end %>
 			<tr>
 				<td><%= link_to "Adicionar ingrediente", addingrediente_path %>	</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="linhatotal">Total: <%= total_percentual_receita %></td>
 			</tr>
 		</table>
 
