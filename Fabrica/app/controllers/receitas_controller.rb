@@ -1,17 +1,24 @@
 class ReceitasController < ApplicationController
 	
 	def index
-
 		# Se o parametro :filtra_id não vier vaziu então busca receita pelo id
 		if !params[:filtra_id].blank?
 			@receita = Receita.filtra_id(params[:filtra_id])
-
 		# Se o parametro filta_codigo_racao não vier vaziu então filtra por receita
 		elsif !params[:filtra_codigo_racao].blank?
 			@receita = Receita.filtra_codigo_racao(params[:filtra_codigo_racao])
 		else
 			# se não pega todas as receitas
-			@receita = Receita.all
+			if params[:attr]
+				if params[:attr] == 'cod'
+					@receita = Receita.joins(:racao).order("racaos.cod #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+				else
+					@receita = Receita.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+				end
+				params[:direcao] = params[:direcao] == 'DESC' ? 'ASC' : 'DESC'
+			else
+				@receita = Receita.joins(:racao).order('cod DESC').paginate(:page => params[:page], :per_page => 10)
+			end
 		end
 		
 		@codigo_racoes_receita = []

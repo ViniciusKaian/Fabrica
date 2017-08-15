@@ -66,8 +66,8 @@
 				<% i = i + 1 %>
 			<% end %>
 			<tr>
-				<td><%= link_to "Adicionar ingrediente", addingrediente_path %>	</td>
-				<td></td>
+				<td><%= link_to "Adicionar ingrediente", addingrediente_path %></td>
+				<td><%= link_to "Apagar receita", @receita, method: :delete, data: { confirm: 'Apagar receita?' } %></td>
 				<td></td>
 				<td></td>
 				<td class="linhatotal">Total: <%= total_percentual_receita %></td>

@@ -1,7 +1,21 @@
 class UsersController < ApplicationController
 	
 	def index
-		@user = User.all
+		if params[:attr]
+			if params[:attr] == 'name'
+				@user = User.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			else
+				@user = User.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			end
+			params[:direcao] = params[:direcao] == 'DESC' ? 'ASC' : 'DESC'
+		else
+			@user = User.order('name DESC').paginate(:page => params[:page], :per_page => 10)
+		end
+
+		# @user = User.paginate(:page => params[:page], :per_page => 2)
+	
+		# Post.paginate(:page => params[:page], :per_page => 30)
+		# @user = User.all
 
 		respond_to do |format|
 			format.html

@@ -1,7 +1,18 @@
 class RacaosController < ApplicationController
   
   def index
-		@racao = Racao.all
+  		if params[:attr]
+			if params[:attr] == 'cod'
+				@racao = Racao.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			else
+				@racao = Racao.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			end
+			params[:direcao] = params[:direcao] == 'DESC' ? 'ASC' : 'DESC'
+		else
+			@racao = Racao.order('cod DESC').paginate(:page => params[:page], :per_page => 10)
+		end
+
+		# @racao = Racao.all
 
 		respond_to do |format|
 			format.html

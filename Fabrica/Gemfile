@@ -40,3 +40,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'pry'
+
+gem  'will_paginate' , '~> 3.1.0'

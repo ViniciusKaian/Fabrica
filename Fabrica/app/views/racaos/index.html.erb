@@ -6,8 +6,8 @@
 		
 		<table id="Racoes">
 			<tr>
-				<th class="linha">ID</th>
-				<th class="linha">Código</th>
+				<th class="linha"><%= link_to "ID", racaos_path(attr: 'id', direcao: params[:direcao]) %></th>
+				<th class="linha"><%= link_to "Código", racaos_path(attr: 'cod', direcao: params[:direcao]) %></th>
 				<th class="linha">Descrição</th>
 				<th class="linha">Status</th>
 				<th class="linha">Ação</th>
@@ -31,6 +31,7 @@
 				</tr>
 			<% end %>
 		</table>
+		<%= will_paginate @racao %>
 	</div>
 
 </div>

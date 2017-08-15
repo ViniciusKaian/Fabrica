@@ -58,3 +58,10 @@
 .text_menu:hover {
 	background: #6495ED;
 }
+
+.pagination {
+	width: 1000px;
+	text-align: center;
+	margin-top: 15px;
+	font-size: 22px;
+}

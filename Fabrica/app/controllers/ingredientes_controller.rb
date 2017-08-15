@@ -1,6 +1,18 @@
 class IngredientesController < ApplicationController
 	def index
-		@ingrediente = Ingrediente.all
+		if params[:attr]
+			if params[:attr] == 'codigo'
+				@ingrediente = Ingrediente.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			else
+				@ingrediente = Ingrediente.order("#{params[:attr]} #{params[:direcao]}").paginate(:page => params[:page], :per_page => 10)
+			end
+			params[:direcao] = params[:direcao] == 'DESC' ? 'ASC' : 'DESC'
+		else
+			@ingrediente = Ingrediente.order('codigo DESC').paginate(:page => params[:page], :per_page => 10)
+		end
+
+
+		# @ingrediente = Ingrediente.all
 
 		respond_to do |format|
 			format.html

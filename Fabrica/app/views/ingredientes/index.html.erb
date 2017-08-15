@@ -5,8 +5,8 @@
 	<div class="index_ingredientes">
 		<table>
 			<tr>
-				<th class="linha_index">ID</th>
-				<th class="linha_index">Código</th>
+				<th class="linha_index"><%= link_to "ID", ingredientes_path(attr: 'id', direcao: params[:direcao]) %></th>
+				<th class="linha_index"><%= link_to "Código", ingredientes_path(attr: 'codigo', direcao: params[:direcao]) %></th>
 				<th class="linha_index">Descrição</th>
 				<th class="linha_index">Status</th>
 				<th class="linha_index">Ação</th>
@@ -28,5 +28,6 @@
 				</tr>
 			<% end %>
 		</table>
+		<%= will_paginate @ingrediente %>
 	</div>
 <div>

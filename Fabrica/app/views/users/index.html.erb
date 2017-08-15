@@ -1,9 +1,12 @@
 <%= stylesheet_link_tag "users" %>
 
 <div class="content">
+
 	<div class="usuarios">
-			<table id="Usuarios">
+		
+		<table id="Usuarios">
 			<tr>
+				<th class="linha"><%= link_to "Nome", users_path(attr: 'name', direcao: params[:direcao]) %></th>
 				<th class="linha">Email</th>
 				<th class="linha">Ação</th>
 
@@ -11,11 +14,13 @@
 
 			<% @user.each do |user| %>
 				<tr>
+					<td class="linhalista"><%= user.name %></td>
 					<td class="linhalista"><%= user.email %></td>
 					<td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'apagar usuário?'} %></td>
 				</tr>
 			<% end %>
 
 		</table>
+		<%= will_paginate @user %>
 	</div>
 </div>

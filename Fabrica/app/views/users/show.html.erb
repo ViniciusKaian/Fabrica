@@ -1,11 +1,15 @@
 <%= stylesheet_link_tag "users" %>
 
 <div class="content">
+
 	<div class="user">
+		
 		<h1>Usuário</h1>
 
 		<p class="labels">Nome:   <%= @user.name %></p>
 
 		<p class="labels">E-mail: <%= @user.email %></p><br>
+
+		<p class="labels"><%= link_to 'Editar', edit_user_path %></p>
 	</div>
 </div>

@@ -18,13 +18,12 @@
 
 		<table>
 			<tr>
-				<th class="linha">ID receita</th>
-				<th class="linha">ID ração</th>
-				<th class="linha">Código ração</th>
+				<th class="linha"><%= link_to "ID receita", receitas_path(attr: 'id', direcao: params[:direcao]) %></th>
+				<th class="linha"><%= link_to "ID ração", receitas_path(attr: 'racao_id', direcao: params[:direcao]) %></th>
+				<th class="linha"><%= link_to "Código ração", receitas_path(attr: 'cod', direcao: params[:direcao]) %></th>
 				<th class="linha">Raceita</th>
 				<th class="linha">Apagar</th>
 			</tr>
-
 			<% @receita.each do |receita| %>
 				<tr>
 					<td class="linhalista"><%= receita.id %></td>
@@ -36,5 +35,7 @@
 			<% end %>
 
 		</table>
+
+		<%= will_paginate @receita %>
 	</div>
 </div>
